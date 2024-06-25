@@ -1,0 +1,52 @@
+[
+   {
+      "title": "Booki",
+      "cover_image": "images/booki/cover.png",
+      "modal_images": ["images/booki/booki-modal.png"],
+      "technologies": ["HTML", "CSS"],
+      "project_info": "Premier projet qui consistait à réaliser l'ensemble de la page d'accueil du site Booki en HTML / CSS",
+      "year": 2024,
+      "type": "front-end",
+      "github_link": "https://github.com/AurelienLeHyaric/Booki"
+   },
+   {
+      "title": "Sophie Bluel",
+      "cover_image": "images/sophie_bluel/cover.png",
+      "modal_images": ["images/sophie_bluel/modale.png", "images/sophie_bluel/modale2.png"],
+      "technologies": ["HTML", "CSS", "JavaScript", "API"],
+      "project_info": "Ce projet concerne celui de l'architecte Sophie Bluel. L'objectif était d'une part de construire un site qui présente de manière dynamique les travaux de l'architecte pouvant être filtrés par catégories. De plus j'ai également développé un espace 'admin' afin que l'architecte puisse ajouter, modifier ou supprimer des travaux, et ce toujours de manière dynamique. J'ai réalisé la partie Frontend en HTML / CSS / JS",
+      "year": 2024,
+      "type": "front-end",
+      "github_link": "https://github.com/AurelienLeHyaric/Sophie_Bluel"
+   },
+   {
+      "title": "Nina Carducci",
+      "cover_image": "images/nina_carducci/cover.png",
+      "modal_images": ["images/nina_carducci/modale.png", "images/sophie_bluel/modale2.png"],
+      "technologies": ["HTML", "CSS", "JavaScript", "SEO"],
+      "project_info": "Ce projet concerne celui de la photographe Nina Carducci. L'objectif était de débugger, d'optimiser et de référencer le site",
+      "year": 2024,
+      "type": "front-end",
+      "github_link": "https://github.com/AurelienLeHyaric/Nina_Carducci"
+   },
+   {
+      "title": "Kasa",
+      "cover_image": "images/kasa/cover.png",
+      "modal_images": ["images/kasa/modale.png", "images/sophie_bluel/modale2.png"],
+      "technologies": ["HTML", "CSS", "JavaScript", "REACT"],
+      "project_info": "Ce projet concerne la plateforme de réservation Kasa",
+      "year": 2024,
+      "type": "front-end",
+      "github_link": "https://github.com/AurelienLeHyaric/Kasa"
+   },
+   {
+      "title": "Mon Vieux Grimoire",
+      "cover_image": "images/mon_vieux_grimoire/cover.jpeg",
+      "modal_images": ["images/mon_vieux_grimoire/modale.png", "images/sophie_bluel/modale2.png"],
+      "technologies": ["NODE JS", "EXPRESS", "API", "MONGO DB"],
+      "project_info": "Ce projet back-end concerne la gestion de livres",
+      "year": 2024,
+      "type": "back-end",
+      "github_link": "https://github.com/AurelienLeHyaric/Mon_vieux_grimoire"
+   }
+]

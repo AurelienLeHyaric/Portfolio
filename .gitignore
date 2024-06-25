@@ -1,2 +1,5 @@
 # Ignorer les fichiers MP4
 *.mp4
+
+# Ignorer le fichier de config Prettier
+.prettierrc
