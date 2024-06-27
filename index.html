@@ -24,10 +24,9 @@
             <div class="section" id="accueil">
                <h2>A propos</h2>
                <p>
-                  Bienvenue sur mon portfolio. Découvrez mes compétences et projets dans le domaine du développement web. "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                  in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                  laborum."
+                  Bienvenue ! Je suis Aurélien Le Hyaric, développeur fullstack. Je suis un développeur fullstack passionné, spécialisé dans la création de solutions web complètes. Avec une expertise
+                  en HTML, CSS, JavaScript, ainsi qu'en développement backend avec Node.js et diverses technologies de bases de données, je conçois et développe des applications web robustes et
+                  efficaces.
                </p>
             </div>
             <div class="section" id="services">
@@ -49,10 +48,52 @@
                <h2>Contact</h2>
                <p>
                   Pour toute question ou opportunité de collaboration, n'hésitez pas à me contacter via <a href="mailto:aurelien.lehyaric@live.com">email</a> ou sur
-                  <a href="https://www.linkedin.com">LinkedIn</a>.
+                  <a href="https://www.linkedin.com/in/aurelien-le-hyaric">LinkedIn</a>.
                </p>
             </div>
          </main>
+      </div>
+
+      <!-- Modale pour afficher les informations détaillées du projet -->
+      <div id="project-modal" class="modal">
+         <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <button class="close-button" aria-label="Close image">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                     fill="#0e443a"
+                     d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm175 79c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                  />
+               </svg>
+            </button>
+            <div class="modal-carousel">
+               <button id="prev-image" class="carousel-button" aria-label="Previous image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                     <!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                     <path
+                        fill="#0e443a"
+                        d="M48 416c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-320c0-8.8-7.2-16-16-16L64 80c-8.8 0-16 7.2-16 16l0 320zm16 64c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480zm64-224c0-6.7 2.8-13 7.7-17.6l112-104c7-6.5 17.2-8.2 25.9-4.4s14.4 12.5 14.4 22l0 208c0 9.5-5.7 18.2-14.4 22s-18.9 2.1-25.9-4.4l-112-104c-4.9-4.5-7.7-10.9-7.7-17.6z"
+                     ></path>
+                  </svg>
+               </button>
+               <div id="modal-images"></div>
+               <button id="next-image" class="carousel-button" aria-label="Next image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                     <!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                     <path
+                        fill="#0e433a"
+                        d="M400 96c0-8.8-7.2-16-16-16L64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-320zM384 32c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0zM320 256c0 6.7-2.8 13-7.7 17.6l-112 104c-7 6.5-17.2 8.2-25.9 4.4s-14.4-12.5-14.4-22l0-208c0-9.5 5.7-18.2 14.4-22s18.9-2.1 25.9 4.4l112 104c4.9 4.5 7.7 10.9 7.7 17.6z"
+                     ></path>
+                  </svg>
+               </button>
+            </div>
+            <p id="modal-info"></p>
+            <p><strong>Technologies :</strong> <span id="modal-technologies"></span></p>
+            <p><strong>Année :</strong> <span id="modal-year"></span></p>
+            <p><strong>Type :</strong> <span id="modal-type"></span></p>
+            <p><a id="modal-github-link" href="" target="_blank">Voir sur GitHub</a></p>
+         </div>
       </div>
    </body>
 </html>
