@@ -211,3 +211,43 @@ nav a.active {
    max-height: 600px;
    border-radius: 5px;
 }
+
+form {
+   display: flex;
+   flex-direction: column;
+}
+
+label {
+   margin-top: 10px;
+}
+
+input,
+textarea {
+   margin-top: 5px;
+   padding: 10px;
+   font-size: 1em;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+}
+
+button {
+   margin-top: 20px;
+   padding: 10px;
+   font-size: 1.2em;
+   background-color: var(--main-h2-color);
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+button:hover {
+   background-color: var(--main-h1-color);
+}
+
+#form-response {
+   margin-top: 20px;
+   font-size: 1.2em;
+   color: var(--main-h2-color);
+}

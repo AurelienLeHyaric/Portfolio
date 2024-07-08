@@ -5,12 +5,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Portfolio - Aurélien LE HYARIC</title>
       <link rel="stylesheet" href="styles.css" />
+      <script src="env.js" defer></script>
       <script defer src="scripts.js"></script>
    </head>
    <body>
       <header>
          <h1>Aurélien Le Hyaric</h1>
-         <p>Développeur Fullstack</p>
+         <p>Développeur fullstack</p>
       </header>
       <div class="container">
          <nav>
@@ -46,10 +47,16 @@
             </div>
             <div class="section" id="contact">
                <h2>Contact</h2>
-               <p>
-                  Pour toute question ou opportunité de collaboration, n'hésitez pas à me contacter via <a href="mailto:aurelien.lehyaric@live.com">email</a> ou sur
-                  <a href="https://www.linkedin.com/in/aurelien-le-hyaric">LinkedIn</a>.
-               </p>
+               <form id="contact-form">
+                  <label for="name">Nom:</label>
+                  <input type="text" id="name" name="name" required />
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required />
+                  <label for="message">Message:</label>
+                  <textarea id="message" name="message" required></textarea>
+                  <button type="submit">Envoyer</button>
+               </form>
+               <p id="form-response"></p>
             </div>
          </main>
       </div>

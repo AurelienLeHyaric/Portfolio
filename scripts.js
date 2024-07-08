@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setupNavigation()
       loadProjects()
       setupModal()
+      setupContactForm()
    }
 
    // Gestion de la navigation dynamique entre les sections
@@ -23,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       showSection("accueil")
    }
-   //Affiche la section correspondante à l'ID donné
+
+   // Affiche la section correspondante à l'ID donné
    function showSection(id) {
       sections.forEach((section) => {
          section.classList.remove("active")
@@ -39,7 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
          }
       })
    }
-   //Chargement des projets à partir du fichier json
+
+   // Chargement des projets à partir du fichier json
    function loadProjects() {
       fetch("data.json")
          .then((response) => response.json())
@@ -53,17 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
          })
          .catch((error) => console.error("Error loading projects:", error))
    }
-   //Affichage des projets récupérés
+
+   // Affichage des projets récupérés
    function createProjectElement(project) {
       const projectElement = document.createElement("div")
       projectElement.classList.add("project")
 
       const technologies = project.technologies.map((tech) => `<li>${tech}</li>`).join("")
       projectElement.innerHTML = `
-       <h3>${project.title}</h3>
-       <img src="${project.cover_image}" alt="${project.title}">
-       <ul class="technologies">${technologies}</ul>
-     `
+        <h3>${project.title}</h3>
+        <img src="${project.cover_image}" alt="${project.title}">
+        <ul class="technologies">${technologies}</ul>
+      `
 
       projectElement.addEventListener("click", () => {
          openModal(project)
@@ -71,7 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return projectElement
    }
-   //Gestionnaite d'événements de la modale
+
+   // Gestionnaire d'événements de la modale
    function setupModal() {
       document.getElementById("next-image").addEventListener("click", () => {
          currentImageIndex = (currentImageIndex + 1) % modalImages.length
@@ -93,7 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
          }
       })
    }
-   //Ouvre la modale en fonction du projet
+
+   // Ouvre la modale en fonction du projet
    function openModal(project) {
       document.getElementById("modal-title").innerText = project.title
       modalImages = project.modal_images
@@ -115,10 +121,36 @@ document.addEventListener("DOMContentLoaded", () => {
          document.getElementById("next-image").style.display = "none"
       }
    }
-   //Mise à jour de l'image du caroussel
+
+   // Mise à jour de l'image du carrousel
    function updateCarousel() {
       const modalImagesContainer = document.getElementById("modal-images")
       modalImagesContainer.innerHTML = `<img src="${modalImages[currentImageIndex]}" alt="Project Image">`
+   }
+
+   // Configuration du formulaire de contact avec EmailJS
+   function setupContactForm() {
+      emailjs.init(window.EMAILJS_USER_ID) // Utilisation des variables d'environnement
+
+      document.getElementById("contact-form").addEventListener("submit", function (event) {
+         event.preventDefault()
+
+         const templateParams = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+         }
+
+         emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, templateParams).then(
+            function (response) {
+               document.getElementById("form-response").textContent = "Message envoyé avec succès !"
+               document.getElementById("contact-form").reset()
+            },
+            function (error) {
+               document.getElementById("form-response").textContent = "Une erreur s'est produite. Veuillez réessayer."
+            }
+         )
+      })
    }
 
    initialize()
