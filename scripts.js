@@ -136,9 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
          event.preventDefault()
 
          const templateParams = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
+            to_name: "Aurélien Le Hyaric",
+            from_name: document.getElementById("name").value,
             message: document.getElementById("message").value,
+            reply_to: document.getElementById("email").value,
          }
 
          emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, templateParams).then(
