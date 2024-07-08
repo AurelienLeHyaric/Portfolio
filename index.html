@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Portfolio - Aurélien LE HYARIC</title>
+      <link rel="stylesheet" href="styles.css" />
+      <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      <script defer src="env.js"></script>
+      <script defer src="scripts.js"></script>
+   </head>
+   <body>
+      <header>
+         <h1>Aurélien Le Hyaric</h1>
+         <p>Développeur fullstack</p>
+      </header>
+      <div class="container">
+         <nav>
+            <a href="#accueil">A propos</a>
+            <a href="#services">Services</a>
+            <a href="#competences">Expertise</a>
+            <a href="#projets">Projets</a>
+            <a href="#contact">Contact</a>
+         </nav>
+         <main>
+            <div class="section" id="accueil">
+               <h2>A propos</h2>
+               <p>
+                  Bienvenue ! Je suis Aurélien Le Hyaric, développeur fullstack. Je suis un développeur fullstack passionné, spécialisé dans la création de solutions web complètes. Avec une expertise
+                  en HTML, CSS, JavaScript, ainsi qu'en développement backend avec Node.js et diverses technologies de bases de données, je conçois et développe des applications web robustes et
+                  efficaces.
+               </p>
+            </div>
+            <div class="section" id="services">
+               <h2>Développeur Fullstack</h2>
+               <h2>Expertise Frontend</h2>
+               <p>Maîtrise des technologies front-end telles que HTML, CSS, JavaScript, et frameworks comme React.</p>
+               <h2>Expertise Backend</h2>
+               <p>Compétences en développement back-end avec Node.js, Express, MongoDB, et MySQL pour créer des applications robustes et performantes.</p>
+            </div>
+            <div class="section" id="competences">
+               <h2>Expertise</h2>
+               <p>En plus du développement fullstack, je possède des compétences en gestion de projet et versionnage de code avec Git.</p>
+            </div>
+            <div class="section" id="projets">
+               <h2>Projets</h2>
+               <div id="projects-container" class="projects-container"></div>
+            </div>
+            <div class="section" id="contact">
+               <h2>Contact</h2>
+               <form id="contact-form">
+                  <label for="name">Nom:</label>
+                  <input type="text" id="name" name="name" required />
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required />
+                  <label for="message">Message:</label>
+                  <textarea id="message" name="message" required></textarea>
+                  <button type="submit">Envoyer</button>
+               </form>
+               <p id="form-response"></p>
+            </div>
+         </main>
+      </div>
+
+      <!-- Modale pour afficher les informations détaillées du projet -->
+      <div id="project-modal" class="modal">
+         <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <button class="close-button" aria-label="Close image">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                     fill="#0e443a"
+                     d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm175 79c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"
+                  />
+               </svg>
+            </button>
+            <div class="modal-carousel">
+               <button id="prev-image" class="carousel-button" aria-label="Previous image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                     <!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                     <path
+                        fill="#0e443a"
+                        d="M48 416c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-320c0-8.8-7.2-16-16-16L64 80c-8.8 0-16 7.2-16 16l0 320zm16 64c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480zm64-224c0-6.7 2.8-13 7.7-17.6l112-104c7-6.5 17.2-8.2 25.9-4.4s14.4 12.5 14.4 22l0 208c0 9.5-5.7 18.2-14.4 22s-18.9 2.1-25.9-4.4l-112-104c-4.9-4.5-7.7-10.9-7.7-17.6z"
+                     ></path>
+                  </svg>
+               </button>
+               <div id="modal-images"></div>
+               <button id="next-image" class="carousel-button" aria-label="Next image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                     <!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                     <path
+                        fill="#0e433a"
+                        d="M400 96c0-8.8-7.2-16-16-16L64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-320zM384 32c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l320 0zM320 256c0 6.7-2.8 13-7.7 17.6l-112 104c-7 6.5-17.2 8.2-25.9 4.4s-14.4-12.5-14.4-22l0-208c0-9.5 5.7-18.2 14.4-22s18.9-2.1 25.9 4.4l112 104c4.9 4.5 7.7 10.9 7.7 17.6z"
+                     ></path>
+                  </svg>
+               </button>
+            </div>
+            <p id="modal-info"></p>
+            <p><strong>Technologies :</strong> <span id="modal-technologies"></span></p>
+            <p><strong>Année :</strong> <span id="modal-year"></span></p>
+            <p><strong>Type :</strong> <span id="modal-type"></span></p>
+            <p><a id="modal-github-link" href="" target="_blank">Voir sur GitHub</a></p>
+         </div>
+      </div>
+   </body>
+</html>
