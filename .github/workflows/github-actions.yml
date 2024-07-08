@@ -22,15 +22,6 @@ jobs:
           echo "window.EMAILJS_SERVICE_ID='${{ secrets.EMAILJS_SERVICE_ID }}';" >> ./env.js
           echo "window.EMAILJS_TEMPLATE_ID='${{ secrets.EMAILJS_TEMPLATE_ID }}';" >> ./env.js
 
-      - name: Add and commit env.js
-        run: |
-          git config --global user.email "aurelien.lehyaric@live.com"
-          git config --global user.name "AurelienLeHyaric"
-          git add env.js
-          git commit -m "Add env.js with environment variables"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
