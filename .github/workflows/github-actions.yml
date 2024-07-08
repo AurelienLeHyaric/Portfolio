@@ -1,23 +1,29 @@
-name: GitHub Actions
+name: Deploy to GitHub Pages
+
 on:
-  push:
-    branches:
-      - main
+   push:
+      branches:
+         - main
 
 permissions:
-  contents: write
-jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Inject environment variables
-        run: |
-          echo "window.EMAILJS_USER_ID='${{ secrets.EMAILJS_USER_ID }}';" > ./env.js
-          echo "window.EMAILJS_SERVICE_ID='${{ secrets.EMAILJS_SERVICE_ID }}';" >> ./env.js
-          echo "window.EMAILJS_TEMPLATE_ID='${{ secrets.EMAILJS_TEMPLATE_ID }}';" >> ./env.js
+   contents: write
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+jobs:
+   deploy:
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Checkout repository
+           uses: actions/checkout@v2
+
+         - name: Inject environment variables
+           run: |
+              echo "window.EMAILJS_USER_ID='${{ secrets.EMAILJS_USER_ID }}';" > ./env.js
+              echo "window.EMAILJS_SERVICE_ID='${{ secrets.EMAILJS_SERVICE_ID }}';" >> ./env.js
+              echo "window.EMAILJS_TEMPLATE_ID='${{ secrets.EMAILJS_TEMPLATE_ID }}';" >> ./env.js
+
+         - name: Deploy to GitHub Pages
+           uses: peaceiris/actions-gh-pages@v3
+           with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: .
