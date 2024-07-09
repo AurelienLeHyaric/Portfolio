@@ -33,7 +33,7 @@ h3 {
 }
 
 h1 {
-   font-size: 3em;
+   font-size: 2.3em;
    color: var(--main-h1-color);
    margin: 0;
 }
@@ -41,6 +41,7 @@ h1 {
 h2 {
    font-size: 2em;
    color: var(--main-h2-color);
+   text-align: center;
 }
 
 h3 {
@@ -49,7 +50,7 @@ h3 {
 }
 
 p {
-   font-size: 1.5em;
+   font-size: 1.4em;
 }
 
 .container {
@@ -250,4 +251,110 @@ button:hover {
    margin-top: 20px;
    font-size: 1.2em;
    color: var(--main-h2-color);
+}
+
+/* Styles pour le menu hamburger */
+.hamburger {
+   display: none;
+   flex-direction: column;
+   cursor: pointer;
+   margin-left: auto;
+   z-index: 2;
+}
+
+.hamburger span {
+   height: 3px;
+   width: 25px;
+   background: var(--main-h1-color);
+   margin: 2px 0;
+   transition: 0.3s;
+}
+
+/* Transformations pour l'état actif */
+.hamburger.active span:nth-child(1) {
+   transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+   opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+   transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/* Styles pour les médias */
+@media (max-width: 1024px) {
+   .container {
+      flex-direction: column;
+   }
+
+   .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   nav {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 80px;
+      right: 0;
+      background-color: var(--main-bg-color);
+      z-index: 1;
+      border-right: 0px solid var(--main-h2-color);
+   }
+
+   nav a {
+      padding: 5px 0;
+      border-bottom: 1px solid var(--main-h2-color);
+   }
+
+   .hamburger {
+      display: flex;
+   }
+
+   nav.active {
+      display: flex;
+   }
+
+   .section {
+      width: inherit;
+   }
+
+   .modal-carousel {
+      height: 400px;
+   }
+
+   #modal-images img {
+      max-height: 400px;
+   }
+}
+
+@media (max-width: 767px) {
+   h1 {
+      font-size: 2em;
+   }
+
+   h2 {
+      font-size: 1.5em;
+   }
+
+   h3 {
+      font-size: 1em;
+   }
+
+   p {
+      font-size: 1em;
+   }
+   nav a {
+      font-size: 1.5em;
+   }
+
+   nav a.active {
+      font-size: 2em;
+   }
 }

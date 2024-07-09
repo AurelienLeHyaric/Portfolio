@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loadProjects()
       setupModal()
       setupContactForm()
+      setupHamburgerMenu()
    }
 
    // Gestion de la navigation dynamique entre les sections
@@ -70,7 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
       `
 
       projectElement.addEventListener("click", () => {
-         openModal(project)
+         if (window.innerWidth > 767) {
+            // Ajoutez cette ligne pour vérifier la largeur de l'écran
+            openModal(project)
+         }
       })
 
       return projectElement
@@ -153,6 +157,22 @@ document.addEventListener("DOMContentLoaded", () => {
          )
       })
    }
+   // Configuration du menu hamburger
+   function setupHamburgerMenu() {
+      const hamburger = document.querySelector(".hamburger")
+      const nav = document.querySelector("nav")
 
+      hamburger.addEventListener("click", () => {
+         hamburger.classList.toggle("active")
+         nav.classList.toggle("active")
+      })
+
+      navLinks.forEach((link) => {
+         link.addEventListener("click", () => {
+            hamburger.classList.remove("active")
+            nav.classList.remove("active")
+         })
+      })
+   }
    initialize()
 })
