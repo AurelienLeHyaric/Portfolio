@@ -89,12 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
       })
 
       closeButton.addEventListener("click", () => {
-         modal.style.display = "none"
+         closeModal()
       })
 
       window.addEventListener("click", (event) => {
          if (event.target === modal) {
-            modal.style.display = "none"
+            closeModal()
          }
       })
    }
@@ -111,6 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("modal-year").innerText = project.year
       document.getElementById("modal-type").innerText = project.type
       document.getElementById("modal-github-link").href = project.github_link
+      modal.classList.remove("hide")
+      modal.classList.add("show")
       modal.style.display = "block"
 
       if (modalImages.length > 1) {
@@ -120,6 +122,15 @@ document.addEventListener("DOMContentLoaded", () => {
          document.getElementById("prev-image").style.display = "none"
          document.getElementById("next-image").style.display = "none"
       }
+   }
+
+   // Ferme la modale
+   function closeModal() {
+      modal.classList.remove("show")
+      modal.classList.add("hide")
+      setTimeout(() => {
+         modal.style.display = "none"
+      }, 100)
    }
 
    // Mise à jour de l'image du carrousel

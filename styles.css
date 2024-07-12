@@ -8,12 +8,19 @@
    --main-section-color: #b0d8c56d;
 }
 
+html,
 body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   display: flex;
+   flex-direction: column;
    background-color: var(--main-bg-color);
    color: var(--main-p-color);
    font-family: "Titillium Web", sans-serif;
-   margin: 0;
-   padding: 0;
 }
 
 header {
@@ -55,8 +62,7 @@ p {
 
 .container {
    display: flex;
-   max-width: 1440px;
-   margin: 0 auto;
+   flex: 1;
 }
 
 nav {
@@ -282,8 +288,6 @@ footer {
    color: var(--main-p-color);
    text-align: center;
    padding: 20px 0;
-   border-top: 2px solid var(--main-h2-color);
-   margin: 20px;
 }
 
 footer p {
@@ -418,4 +422,41 @@ footer img {
    .modal-content {
       margin: 20% auto;
    }
+}
+
+/* Animation pour l'ouverture de la modale */
+@keyframes modalFadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* Animation pour la fermeture de la modale */
+@keyframes modalFadeOut {
+   from {
+      opacity: 1;
+      transform: translateY(0);
+   }
+   to {
+      opacity: 0;
+      transform: translateY(-20px);
+   }
+}
+
+.modal.show .modal-content {
+   animation: modalFadeIn 0.3s forwards;
+}
+
+.modal.hide .modal-content {
+   animation: modalFadeOut 0.3s forwards;
+}
+
+.modal.hide {
+   display: block;
+   pointer-events: none;
 }
