@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setupNavigation()
       loadProjects()
       setupModal()
-      setupContactForm()
       setupHamburgerMenu()
    }
 
@@ -129,31 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
       modalImagesContainer.innerHTML = `<img src="${modalImages[currentImageIndex]}" alt="Project Image">`
    }
 
-   // Configuration du formulaire de contact avec EmailJS
-   function setupContactForm() {
-      emailjs.init(window.EMAILJS_USER_ID) // Utilisation des variables d'environnement
-
-      document.getElementById("contact-form").addEventListener("submit", function (event) {
-         event.preventDefault()
-
-         const templateParams = {
-            to_name: "Aurélien Le Hyaric",
-            from_name: document.getElementById("name").value,
-            message: document.getElementById("message").value,
-            reply_to: document.getElementById("email").value,
-         }
-
-         emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, templateParams).then(
-            function (response) {
-               document.getElementById("form-response").textContent = "Message envoyé avec succès !"
-               document.getElementById("contact-form").reset()
-            },
-            function (error) {
-               document.getElementById("form-response").textContent = "Une erreur s'est produite. Veuillez réessayer."
-            }
-         )
-      })
-   }
    // Configuration du menu hamburger
    function setupHamburgerMenu() {
       const hamburger = document.querySelector(".hamburger")
