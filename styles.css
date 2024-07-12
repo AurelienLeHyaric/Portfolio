@@ -11,7 +11,7 @@
 html,
 body {
    height: 100%;
-   margin: 0;
+   margin: auto;
    padding: 0;
 }
 
@@ -21,6 +21,7 @@ body {
    background-color: var(--main-bg-color);
    color: var(--main-p-color);
    font-family: "Titillium Web", sans-serif;
+   max-width: 1440px;
 }
 
 header {
@@ -123,6 +124,14 @@ nav a.active {
    width: 350px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
    cursor: pointer;
+}
+
+.project {
+   transition: transform 0.2s;
+}
+
+.project:hover {
+   transform: scale(1.05);
 }
 
 .project img {
@@ -250,11 +259,11 @@ button {
 .contact-links img {
    width: 40px;
    height: 40px;
-   transition: transform 0.3s;
+   transition: transform 0.2s;
 }
 
 .contact-links img:hover {
-   transform: scale(1.1);
+   transform: scale(1.2);
 }
 
 /* Styles pour le menu hamburger */
