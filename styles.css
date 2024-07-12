@@ -24,8 +24,12 @@ body {
 }
 
 header {
-   padding: 20px;
+   padding: 0 20px;
    text-align: center;
+}
+
+header p {
+   margin: 0 0 50px 0;
 }
 
 main {
@@ -94,11 +98,11 @@ nav a.active {
 
 .section {
    display: none;
+   margin-bottom: 20px;
    padding: 20px;
-   margin: 20px 0;
    background: var(--main-bg-color);
    width: 80%;
-   border: 2px solid var(--main-h2-color);
+   border: 0px solid var(--main-h2-color);
 }
 
 .section.active {
@@ -287,10 +291,12 @@ footer {
    background-color: var(--main-bg-color);
    color: var(--main-p-color);
    text-align: center;
-   padding: 20px 0;
+   margin: 0 20px;
 }
 
 footer p {
+   border-top: 2px solid var(--main-h2-color);
+   padding-top: 10px;
    margin: 0;
    font-size: 1em;
 }
@@ -301,6 +307,7 @@ footer a {
 }
 
 footer img {
+   margin: 0 20px 10px 20px;
    max-width: 400px;
    height: auto;
 }
@@ -322,6 +329,10 @@ footer img {
       top: 0;
       left: 0;
       z-index: 10;
+   }
+
+   main {
+      padding: 0 20px;
    }
 
    nav {
@@ -393,6 +404,7 @@ footer img {
 
    .section {
       width: inherit;
+      padding: 0;
    }
 
    .modal-carousel {
@@ -459,4 +471,26 @@ footer img {
 .modal.hide {
    display: block;
    pointer-events: none;
+}
+
+/* Animation pour le déplacement latéral */
+@keyframes slideInLeft {
+   from {
+      opacity: 0;
+      transform: translateX(-20%);
+   }
+   to {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+.section h2 {
+   opacity: 0;
+   transform: translateX(-100%);
+   transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.section.active h2 {
+   animation: slideInLeft 0.4s forwards;
 }
