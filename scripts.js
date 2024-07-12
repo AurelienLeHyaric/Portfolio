@@ -71,10 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
 
       projectElement.addEventListener("click", () => {
-         if (window.innerWidth > 767) {
-            // Ajoutez cette ligne pour vérifier la largeur de l'écran
-            openModal(project)
-         }
+         openModal(project)
       })
 
       return projectElement
