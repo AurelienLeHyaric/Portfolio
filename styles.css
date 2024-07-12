@@ -282,6 +282,30 @@ button:hover {
    transform: rotate(45deg) translate(-5px, -5px);
 }
 
+footer {
+   background-color: var(--main-bg-color);
+   color: var(--main-p-color);
+   text-align: center;
+   padding: 20px 0;
+   border-top: 2px solid var(--main-h2-color);
+   margin-top: 20px;
+}
+
+footer p {
+   margin: 0;
+   font-size: 1em;
+}
+
+footer a {
+   display: block;
+   margin-top: 10px;
+}
+
+footer img {
+   max-width: 30%;
+   height: auto;
+}
+
 /* Styles pour les médias */
 @media (max-width: 1024px) {
    .container {
