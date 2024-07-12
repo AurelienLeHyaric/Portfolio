@@ -62,16 +62,17 @@
             </div>
             <div class="section" id="contact">
                <h2>Contact</h2>
-               <form id="contact-form">
-                  <label for="name">Nom:</label>
-                  <input type="text" id="name" name="name" required />
-                  <label for="email">Email:</label>
-                  <input type="email" id="email" name="email" required />
-                  <label for="message">Message:</label>
-                  <textarea id="message" name="message" required></textarea>
-                  <button type="submit">Envoyer</button>
-               </form>
-               <p id="form-response"></p>
+               <div class="contact-links">
+                  <a href="mailto:contact@aurelienlehyaric.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
+                     <img src="/images/contact/mail.svg" alt="Email Icon" />
+                  </a>
+                  <a href="https://github.com/AurelienLeHyaric" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                     <img src="/images/contact/github.svg" alt="GitHub Icon" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/aurelien-le-hyaric" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                     <img src="/images/contact/linkedin.svg" alt="LinkedIn Icon" />
+                  </a>
+               </div>
             </div>
          </main>
       </div>
@@ -126,14 +127,5 @@
             <p><a id="modal-github-link" href="" target="_blank">Voir sur GitHub</a></p>
          </div>
       </div>
-      <!-- Code EmailJS -->
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-      <script type="text/javascript">
-         ;(function () {
-            emailjs.init({
-               publicKey: window.EMAILJS_USER_ID,
-            })
-         })()
-      </script>
    </body>
 </html>
