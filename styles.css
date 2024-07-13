@@ -11,7 +11,7 @@
 html,
 body {
    height: 100%;
-   margin: auto;
+   margin: 0;
    padding: 0;
 }
 
@@ -22,6 +22,7 @@ body {
    color: var(--main-p-color);
    font-family: "Titillium Web", sans-serif;
    max-width: 1440px;
+   margin: auto;
 }
 
 header {
@@ -29,8 +30,13 @@ header {
    text-align: center;
 }
 
+header h2 {
+   font-size: 1.6em;
+   margin-top: 0;
+}
+
 header p {
-   margin: 0 0 50px 0;
+   margin-bottom: 50px;
 }
 
 main {
@@ -111,6 +117,16 @@ nav a.active {
    flex-direction: column;
 }
 
+#accueil img {
+   min-width: 200px;
+   max-width: 500px;
+   margin: auto;
+}
+
+#competences p {
+   margin-bottom: 5px;
+}
+
 .projects-container {
    display: flex;
    flex-wrap: wrap;
@@ -124,9 +140,6 @@ nav a.active {
    width: 350px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
    cursor: pointer;
-}
-
-.project {
    transition: transform 0.2s;
 }
 
@@ -283,7 +296,6 @@ button {
    transition: 0.3s;
 }
 
-/* Transformations pour l'état actif */
 .hamburger.active span:nth-child(1) {
    transform: rotate(-45deg) translate(-5px, 5px);
 }
@@ -321,7 +333,6 @@ footer img {
    height: auto;
 }
 
-/* Styles pour les médias */
 @media (max-width: 1024px) {
    .container {
       flex-direction: column;
@@ -502,4 +513,24 @@ footer img {
 
 .section.active h2 {
    animation: slideInLeft 0.4s forwards;
+}
+
+/* Animation pour le Welcome */
+@keyframes popping {
+   0% {
+      opacity: 0;
+      transform: scale(0.5);
+   }
+   50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+   }
+   100% {
+      opacity: 1;
+      transform: scale(1);
+   }
+}
+
+#accueil img {
+   animation: popping 1s ease-out forwards;
 }

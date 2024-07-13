@@ -1,5 +1,31 @@
 [
    {
+      "title": "Kasa",
+      "cover_image": "images/kasa/cover.jpg",
+      "modal_images": ["images/kasa/modale1.jpg", "images/kasa/modale2.jpg", "images/kasa/modale3.jpg"],
+      "technologies": ["HTML", "CSS", "JavaScript", "REACT"],
+      "project_info": "Ce projet concerne la plateforme de réservation Kasa. React m'a permis de réaliser une interface fluide et dynamique de par son utilisation de composants réutilisables",
+      "year": 2024,
+      "type": "front-end",
+      "github_link": "https://github.com/AurelienLeHyaric/Kasa"
+   },
+   {
+      "title": "Mon Vieux Grimoire",
+      "cover_image": "images/mon_vieux_grimoire/cover.jpg",
+      "modal_images": [
+         "images/mon_vieux_grimoire/modale1.jpg",
+         "images/mon_vieux_grimoire/modale2.jpg",
+         "images/mon_vieux_grimoire/modale3.jpg",
+         "images/mon_vieux_grimoire/modale4.jpg",
+         "images/mon_vieux_grimoire/modale5.jpg"
+      ],
+      "technologies": ["NODE JS", "EXPRESS", "API", "MONGO DB"],
+      "project_info": "Ce projet back-end concerne une gestion de livres. L'effort a été porté sur le développement de l'API, le routage, opérations en base de données et la sécurisation des connexions et des requêtes",
+      "year": 2024,
+      "type": "back-end",
+      "github_link": "https://github.com/AurelienLeHyaric/Mon_vieux_grimoire"
+   },
+   {
       "title": "Booki",
       "cover_image": "images/booki/cover.jpg",
       "modal_images": ["images/booki/modale1.jpg"],
@@ -28,31 +54,5 @@
       "year": 2024,
       "type": "front-end",
       "github_link": "https://github.com/AurelienLeHyaric/Nina_Carducci"
-   },
-   {
-      "title": "Kasa",
-      "cover_image": "images/kasa/cover.jpg",
-      "modal_images": ["images/kasa/modale1.jpg", "images/kasa/modale2.jpg", "images/kasa/modale3.jpg"],
-      "technologies": ["HTML", "CSS", "JavaScript", "REACT"],
-      "project_info": "Ce projet concerne la plateforme de réservation Kasa",
-      "year": 2024,
-      "type": "front-end",
-      "github_link": "https://github.com/AurelienLeHyaric/Kasa"
-   },
-   {
-      "title": "Mon Vieux Grimoire",
-      "cover_image": "images/mon_vieux_grimoire/cover.jpg",
-      "modal_images": [
-         "images/mon_vieux_grimoire/modale1.jpg",
-         "images/mon_vieux_grimoire/modale2.jpg",
-         "images/mon_vieux_grimoire/modale3.jpg",
-         "images/mon_vieux_grimoire/modale4.jpg",
-         "images/mon_vieux_grimoire/modale5.jpg"
-      ],
-      "technologies": ["NODE JS", "EXPRESS", "API", "MONGO DB"],
-      "project_info": "Ce projet back-end concerne la gestion de livres",
-      "year": 2024,
-      "type": "back-end",
-      "github_link": "https://github.com/AurelienLeHyaric/Mon_vieux_grimoire"
    }
 ]
