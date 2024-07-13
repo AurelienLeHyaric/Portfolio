@@ -3,3 +3,5 @@
 
 # Ignorer le fichier de config Prettier
 .prettierrc
+
+arbre.svg
