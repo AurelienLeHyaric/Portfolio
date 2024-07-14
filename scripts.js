@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showSection("accueil")
    }
 
-   // Affiche la section correspondante à l'ID donné
+   // Affiche la section correspondante
    function showSection(id) {
       sections.forEach((section) => {
          section.classList.remove("active")
