@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
    const navLinks = document.querySelectorAll("nav a")
    const modal = document.getElementById("project-modal")
    const closeButton = document.querySelector(".close-button")
+   const darkModeToggle = document.getElementById("dark-mode-toggle")
    let currentImageIndex = 0
    let modalImages = []
 
@@ -11,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
       loadProjects()
       setupModal()
       setupHamburgerMenu()
+      checkDarkMode()
+      loadSvgAndApplyMode() // Charge et applique le mode sur le SVG
    }
 
    // Gestion de la navigation dynamique entre les sections
@@ -64,10 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const technologies = project.technologies.map((tech) => `<li>${tech}</li>`).join("")
       projectElement.innerHTML = `
-        <h3>${project.title}</h3>
-        <img src="${project.cover_image}" alt="${project.title}">
-        <ul class="technologies">${technologies}</ul>
-      `
+           <h3>${project.title}</h3>
+           <img src="${project.cover_image}" alt="${project.title}">
+           <ul class="technologies">${technologies}</ul>
+       `
 
       projectElement.addEventListener("click", () => {
          openModal(project)
@@ -156,5 +159,71 @@ document.addEventListener("DOMContentLoaded", () => {
          })
       })
    }
+
+   // Fonction pour basculer le mode sombre
+   function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode")
+
+      if (document.body.classList.contains("dark-mode")) {
+         localStorage.setItem("dark-mode", "enabled")
+         darkModeToggle.textContent = "☀️"
+      } else {
+         localStorage.setItem("dark-mode", null)
+         darkModeToggle.textContent = "🌙"
+      }
+   }
+
+   // Vérifie et applique le mode sombre au chargement
+   function checkDarkMode() {
+      if (localStorage.getItem("dark-mode") === "enabled") {
+         document.body.classList.add("dark-mode")
+         darkModeToggle.textContent = "☀️"
+      }
+   }
+
+   // Fonction pour charger le SVG et appliquer le mode
+   function loadSvgAndApplyMode() {
+      const objectElement = document.getElementById("welcome-svg")
+      objectElement.addEventListener("load", () => {
+         // Récupère le document SVG intégré
+         const svgDocument = objectElement.contentDocument
+         const svgElement = svgDocument.querySelector("svg")
+
+         // Applique le mode actuel (clair ou sombre)
+         if (document.body.classList.contains("dark-mode")) {
+            svgElement.classList.remove("svg-light")
+            svgElement.classList.add("svg-dark")
+         } else {
+            svgElement.classList.remove("svg-dark")
+            svgElement.classList.add("svg-light")
+         }
+      })
+   }
+
+   // Mise à jour du mode SVG en fonction du mode clair/sombre
+   function updateSvgMode() {
+      const objectElement = document.getElementById("welcome-svg")
+      if (objectElement) {
+         const svgDocument = objectElement.contentDocument
+         if (svgDocument) {
+            const svgElement = svgDocument.querySelector("svg")
+            if (document.body.classList.contains("dark-mode")) {
+               svgElement.classList.remove("svg-light")
+               svgElement.classList.add("svg-dark")
+            } else {
+               svgElement.classList.remove("svg-dark")
+               svgElement.classList.add("svg-light")
+            }
+         }
+      }
+   }
+
+   // Ajoute un écouteur pour le bouton de bascule du mode sombre
+   darkModeToggle.addEventListener("click", () => {
+      toggleDarkMode()
+      updateSvgMode()
+   })
+
+   // Initialisation du site
    initialize()
 })
