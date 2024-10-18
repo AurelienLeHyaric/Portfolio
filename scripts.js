@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const technologies = project.technologies.map((tech) => `<li>${tech}</li>`).join("")
       projectElement.innerHTML = `
         <h3>${project.title}</h3>
-        <img src="${project.cover_image}" alt="${project.title}">
+        <img src="${project.cover_image}" alt="${project.title}" loading="lazy">
         <ul class="technologies">${technologies}</ul>
       `
 
