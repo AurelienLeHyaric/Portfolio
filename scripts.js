@@ -5,13 +5,82 @@ document.addEventListener("DOMContentLoaded", () => {
    const closeButton = document.querySelector(".close-button")
    let currentImageIndex = 0
    let modalImages = []
+   let currentSectionIndex = 0
+   let isTransitioning = false
 
    function initialize() {
       setupNavigation()
       loadProjects()
+      changeSectionByIndex(currentSectionIndex)
       setupModal()
       setupHamburgerMenu()
    }
+
+   // Changer la section active par son index
+   function changeSectionByIndex(index) {
+      if (index < 0 || index >= sections.length) return // Éviter de dépasser les sections
+
+      // Changer la section active
+      sections.forEach((section, i) => {
+         section.classList.remove("active")
+         if (i === index) {
+            section.classList.add("active")
+         }
+      })
+
+      // Mettre à jour les liens de navigation
+      navLinks.forEach((link) => {
+         link.classList.remove("active")
+         if (link.getAttribute("href").substring(1) === sections[index].id) {
+            link.classList.add("active")
+         }
+      })
+
+      currentSectionIndex = index
+      isTransitioning = false // Permettre de nouveau la transition après le changement de section
+      window.scrollTo(0, 0) // Scroll vers le haut de la page après le changement de section
+   }
+
+   // Vérifier si la modale est ouverte
+   function isModalOpen() {
+      return modal.classList.contains("show")
+   }
+
+   // Vérifier si on est en haut de page (header compris)
+   function isTopOfPage() {
+      return window.scrollY === 0
+   }
+
+   // Vérifier si le footer est entièrement visible avant d'autoriser le changement de section
+   function isFooterVisible() {
+      const footer = document.querySelector("footer")
+      const footerRect = footer.getBoundingClientRect()
+      return footerRect.top < window.innerHeight && footerRect.bottom >= 20
+   }
+
+   // Vérifier si le footer est entièrement visible
+   function isBottomOfPage() {
+      return isFooterVisible()
+   }
+
+   // Gérer le défilement avec la molette de la souris
+   window.addEventListener("wheel", (e) => {
+      if (isModalOpen()) return // Empêche le changement de section si la modale est ouverte
+
+      if (isTransitioning) return
+
+      if (e.deltaY > 0 && isBottomOfPage()) {
+         if (currentSectionIndex < sections.length - 1) {
+            isTransitioning = true
+            changeSectionByIndex(currentSectionIndex + 1) // Aller à la section suivante
+         }
+      } else if (e.deltaY < 0 && isTopOfPage()) {
+         if (currentSectionIndex > 0) {
+            isTransitioning = true
+            changeSectionByIndex(currentSectionIndex - 1) // Aller à la section précédente
+         }
+      }
+   })
 
    // Gestion de la navigation dynamique entre les sections
    function setupNavigation() {
@@ -19,27 +88,18 @@ document.addEventListener("DOMContentLoaded", () => {
          link.addEventListener("click", function (e) {
             e.preventDefault()
             const targetId = this.getAttribute("href").substring(1)
-            showSection(targetId)
+            navigateToSection(targetId) // Changer de section par ID
          })
       })
-      showSection("accueil")
+      changeSectionByIndex(0) // Afficher la première section au démarrage
    }
 
-   // Affiche la section correspondante
-   function showSection(id) {
-      sections.forEach((section) => {
-         section.classList.remove("active")
-         if (section.id === id) {
-            section.classList.add("active")
-         }
-      })
-
-      navLinks.forEach((link) => {
-         link.classList.remove("active")
-         if (link.getAttribute("href").substring(1) === id) {
-            link.classList.add("active")
-         }
-      })
+   // Nouvelle fonction pour la navigation par clic sur un lien
+   function navigateToSection(id) {
+      const targetSectionIndex = Array.from(sections).findIndex((section) => section.id === id)
+      if (targetSectionIndex !== -1) {
+         changeSectionByIndex(targetSectionIndex)
+      }
    }
 
    // Chargement des projets à partir du fichier json
@@ -98,6 +158,20 @@ document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener("click", (event) => {
          if (event.target === modal) {
             closeModal()
+         }
+      })
+
+      // Gérer le défilement dans la modale pour faire défiler les images du carrousel
+      modal.addEventListener("wheel", (e) => {
+         e.preventDefault() // Empêche le défilement de la page en arrière-plan
+         if (e.deltaY > 0) {
+            // Défilement vers le bas (image suivante)
+            currentImageIndex = (currentImageIndex + 1) % modalImages.length
+            updateCarousel()
+         } else if (e.deltaY < 0) {
+            // Défilement vers le haut (image précédente)
+            currentImageIndex = (currentImageIndex - 1 + modalImages.length) % modalImages.length
+            updateCarousel()
          }
       })
    }
