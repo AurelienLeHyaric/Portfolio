@@ -114,6 +114,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("modal-year").innerText = project.year
       document.getElementById("modal-type").innerText = project.type
       document.getElementById("modal-github-link").href = project.github_link
+
+      // Charger toutes les images .webp du projet immédiatement
+      modalImages.forEach((imageUrl) => {
+         if (imageUrl.endsWith(".webp")) {
+            const img = new Image()
+            img.src = imageUrl // Force le chargement de l'image
+         }
+      })
       modal.classList.remove("hide")
       modal.classList.add("show")
       modal.style.display = "block"
