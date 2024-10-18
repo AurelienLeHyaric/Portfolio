@@ -41,6 +41,7 @@ header p {
 
 main {
    flex: 1;
+   margin-left: 310px;
    padding: 20px;
 }
 
@@ -77,9 +78,15 @@ p {
 }
 
 nav {
+   position: fixed;
+   top: 120px;
+   left: 20px;
    width: 250px;
    padding: 20px;
    border-right: 4px solid var(--main-h2-color);
+   background-color: var(--main-bg-color); /* Fond pour le menu */
+   height: calc(100% - 40px); /* Prend toute la hauteur de l'écran avec une marge */
+   overflow-y: auto; /* Permet de scroller dans le menu si nécessaire */
 }
 
 nav a {
@@ -313,6 +320,7 @@ footer {
    color: var(--main-p-color);
    text-align: center;
    margin: 0 20px;
+   z-index: 10;
 }
 
 footer p {
@@ -353,6 +361,7 @@ footer img {
 
    main {
       padding: 0 20px;
+      margin-left: inherit;
    }
 
    nav {
