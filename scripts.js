@@ -62,10 +62,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const projectElement = document.createElement("div")
       projectElement.classList.add("project")
 
+      // On applique le loading lazy partout sauf sur les cover
+      const loadingAttribute = project.cover_image.endsWith("cover.webp") ? "" : 'loading="lazy"'
+
       const technologies = project.technologies.map((tech) => `<li>${tech}</li>`).join("")
       projectElement.innerHTML = `
         <h3>${project.title}</h3>
-        <img src="${project.cover_image}" alt="${project.title}" loading="lazy">
+        <img src="${project.cover_image}" alt="${project.title}" ${loadingAttribute}>
         <ul class="technologies">${technologies}</ul>
       `
 
